@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    public int gridSize = 10;      // Tamaño de la grilla
-    public float cellSize = 1f;    // Tamaño de cada celda
-    public Material gridMaterial;   // Material para las líneas
-    public float lineWidth = 0.1f;  // Ancho de las líneas
+    public int gridSize = 10;     
+    public float cellSize = 1f;    
+    public Material gridMaterial;   
+    public float lineWidth = 0.1f; 
 
     void Start()
     {
@@ -22,8 +22,6 @@ public class GridManager : MonoBehaviour
                 DrawLine(new Vector3(x * cellSize, 0, z * cellSize), new Vector3((x + 1) * cellSize, 0, z * cellSize));
             }
         }
-
-        // Dibujar las líneas del último borde
         DrawLine(new Vector3(gridSize * cellSize, 0, 0), new Vector3(gridSize * cellSize, 0, gridSize * cellSize));
         DrawLine(new Vector3(0, 0, gridSize * cellSize), new Vector3(gridSize * cellSize, 0, gridSize * cellSize));
     }
@@ -36,11 +34,7 @@ public class GridManager : MonoBehaviour
         LineRenderer lineRenderer = line.AddComponent<LineRenderer>();
         lineRenderer.positionCount = 2;
         lineRenderer.SetPositions(new Vector3[] { start, end });
-
-        // Asignar el material al LineRenderer
         lineRenderer.material = gridMaterial;
-
-        // Ajustar el ancho de las líneas
         lineRenderer.startWidth = lineWidth;
         lineRenderer.endWidth = lineWidth;
     }

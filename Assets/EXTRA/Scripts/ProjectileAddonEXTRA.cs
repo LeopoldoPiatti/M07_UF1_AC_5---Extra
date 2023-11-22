@@ -11,16 +11,11 @@ public class ProjectileAddonEXTRA : MonoBehaviour
     bool hasExploded = false;
 
     public int damage;
-
-    private Rigidbody rb;
-
-    private bool targetHit;
-
+    
     public GameObject granadeExplosion;
 
     private void Start()
     {
-        //rb = GetComponent<Rigidbody>();
         countdown = delay;
     }
 
@@ -49,19 +44,5 @@ public class ProjectileAddonEXTRA : MonoBehaviour
         }
 
         Destroy(gameObject);
-    }
-
-
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        // check if you hit an enemy
-        if (collision.gameObject.GetComponent<BasicEnemyEXTRA>() != null)
-        {
-            BasicEnemyEXTRA enemy = collision.gameObject.GetComponent<BasicEnemyEXTRA>();
-
-            enemy.TakeDamage(damage);
-                       
-        }
     }
 }

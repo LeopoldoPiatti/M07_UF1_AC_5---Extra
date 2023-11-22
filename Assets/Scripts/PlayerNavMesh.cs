@@ -13,7 +13,6 @@ public class PlayerNavMesh : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.speed = movementSpeed;
     }
-
     private void Update()
     {
         if (Input.GetMouseButton(0))

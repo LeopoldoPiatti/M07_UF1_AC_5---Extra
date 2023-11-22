@@ -7,7 +7,6 @@ public class GroundDetectorEXTRA : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Mantén tu lógica de Raycast para actualizar la variable 'grounded'
         if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1))
         {
             grounded = true;

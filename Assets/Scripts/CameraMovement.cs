@@ -30,13 +30,13 @@ public class CameraController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            // Rotar la cámara en sentido antihorario (en incrementos de 90 grados)
+           
             transform.Rotate(Vector3.up, -90, Space.World);
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            // Rotar la cámara en sentido horario (en incrementos de 90 grados)
+            
             transform.Rotate(Vector3.up, 90, Space.World);
         }
     }

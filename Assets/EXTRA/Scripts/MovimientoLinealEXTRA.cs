@@ -7,13 +7,12 @@ public class MovimientoLinealEXTRA : MonoBehaviour
     public List<Transform> points;
     public float speed;
     int objective;
-    // Start is called before the first frame update
+    
     void Start()
     {
         transform.position = points[0].position;
     }
-
-    // Update is called once per frame
+        
     void Update()
     {
         float distance = Vector3.Distance(transform.position, points[objective].position);

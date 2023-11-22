@@ -6,11 +6,11 @@ public class PlayerAttack : MonoBehaviour
 {
     public KeyCode attackKey = KeyCode.Space;
     public float radius;
-    public float cooldownTime = 2.0f; // Time in seconds between attacks
-    public float fleeTime = 3.0f; // Time in seconds for fleeing
-    public float resumeTime = 2.0f; // Time in seconds to resume movement
+    public float cooldownTime = 2.0f; 
+    public float fleeTime = 3.0f;
+    public float resumeTime = 2.0f; 
     bool canAttack = true;
-    public LayerMask enemyLayer; // Layer of objects to interact with the attack
+    public LayerMask enemyLayer;
     public GameObject attackWave;
 
     private void Update()
@@ -34,10 +34,8 @@ public class PlayerAttack : MonoBehaviour
             NavMeshAgent navMeshAgent = nearbyObjects.GetComponent<NavMeshAgent>();
             if (navMeshAgent != null)
             {
-                // Stop the enemy
                 navMeshAgent.isStopped = true;
-
-                // Start the coroutine to resume movement after a delay
+                               
                 StartCoroutine(FleeAndResume(navMeshAgent));
             }
         }
@@ -52,13 +50,9 @@ public class PlayerAttack : MonoBehaviour
 
     IEnumerator FleeAndResume(NavMeshAgent navMeshAgent)
     {
-        // Wait for the flee time
+        
         yield return new WaitForSeconds(fleeTime);
-
-        // Resume the movement after a delay
         yield return new WaitForSeconds(resumeTime);
-
-        // Resume the movement
         navMeshAgent.isStopped = false;
     }
 }
